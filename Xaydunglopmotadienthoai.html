@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Mobile = function (id,name, pin, saveMessW, saveMessB,saveMessS) {
+        this.id = id;
+        this.name = name;
+        this.pin = pin;
+        this.saveMessW = saveMessW;
+        this.saveMessB = saveMessB;
+        this.saveMessS = saveMessS;
+        this.status = false;
+        this.message = "";
+        this.getName = function () {
+            return this.name;
+        }
+        this.getPin = function () {
+            return this.pin;
+        }
+        this.getSaveMessW = function () {
+            return this.saveMessW;
+        }
+        this.getSaveMessB = function () {
+            return this.saveMessB;
+        }
+        this.getSaveMessS = function () {
+            return this.saveMessS;
+        }
+        this.setPin = function (pin) {
+            if (this.pin >=100) {
+                this.pin = 100;
+            } else {
+                return this.pin--;
+            }
+        }
+        this.setStatus = function () {
+            if (this.status == true) {
+                this.status = false;
+            } else {
+                this.status = true;
+            }
+        }
+        this.setMessage = function (text) {
+            if (this.status === true){
+                return this.message = text;
+            } else {
+                this.message = "Bạn cần mở máy";
+            }
+        }
+        this.setMessage = function (message) {
+            this.message = message;
+        }
+        this.getMessage = function () {
+            return this.message;
+        }
+        this.sendMessage = function (message,mobile) {
+            mobile.setMessage(message);
+        }
+    }
+    let nokia = new Mobile(1,"C2730", 50);
+    let iphone = new Mobile(2,"Iphone 8" , 40);
+    nokia.sendMessage("Haallo",iphone);
+    let message = iphone.getMessage();
+    alert(message);
+
+</script>
+</body>
+</html>
